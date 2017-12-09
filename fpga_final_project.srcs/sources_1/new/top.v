@@ -98,8 +98,8 @@ module top(
           // end AccelArithmetics;
   ADXL362Ctrl accel (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_Z(ACCEL_Z),.Data_Ready(Data_Ready),
                       .MISO(MISO),.SCLK(SCLK),.MOSI(MOSI),.SS(SS));
-  AccelArithmetics aa (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_X_IN(ACCEL_Z),.ACCEL_X_OUT(ACCEL_Z_8));
-  assign ACCEL_Z_4 = ACCEL_Z_8[7:3];
+  AccelArithmetics aa (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_X_IN(ACCEL_Z),.ACCEL_X_OUT(ACCEL_Z_8),.Data_Ready(Data_Ready));
+  assign ACCEL_Z_4 = ACCEL_Z_8 >>> 4;
 
   // Alpha-blend pixels from gameBoard and dashBoard, and send to VGA output
   // But before implementing dashBoard, output gameBoard alone is fine
