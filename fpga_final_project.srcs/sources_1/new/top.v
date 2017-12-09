@@ -103,7 +103,8 @@ module top(
 
   // Alpha-blend pixels from gameBoard and dashBoard, and send to VGA output
   // But before implementing dashBoard, output gameBoard alone is fine
-  assign pixel = pixel_gameBoard;
+  // assign pixel = pixel_gameBoard;
+  blend background (pixel_gameBoard, { vcount[8:5] + hcount[9:6], hcount[8:5], hcount[3:0] }, pixel);
 
   // switch[1:0] selects which video generator to use:
   //  00: the game
@@ -118,7 +119,7 @@ module top(
     vs <= pvsync;
     case (switch[1:0])
       2'b01: rgb <= { 11{border} };
-      2'b10: rgb <= { vcount[9:6] + hcount[9:6], hcount[8:5], hcount[3:0] };
+      2'b10: rgb <= { vcount[8:5] + hcount[9:6], hcount[8:5], hcount[3:0] };
       2'b00: rgb <= pixel;
     endcase
   end
@@ -152,7 +153,7 @@ module xvga(input vclock,
    // vertical: 806 lines total
    // display 768 lines
    wire vsyncon,vsyncoff,vreset;
-   assign vsyncon = hreset & (vcount == 776); // typo? 767?
+   assign vsyncon = hreset & (vcount == 767); // typo? 767?
    assign vsyncoff = hreset & (vcount == 782);
    assign vreset = hreset & (vcount == 805);
 

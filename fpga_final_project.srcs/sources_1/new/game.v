@@ -70,9 +70,9 @@ module game (
       end
     else begin // If not reset, continiously check for boundry
       if ((ball_x + speed_x > planWidth - ballRadius) || (ball_x - speed_x < 0))
-        direction_x = -direction_x;
+        direction_x <= -direction_x;
       if ((ball_y + speed_y > planHeight) || (ball_y - speed_y < 0))
-        direction_y = -direction_y;
+        direction_y <= -direction_y;
 
       ball_x <= ball_x + speed_x  * direction_x;
       ball_y <= ball_y + speed_y  * direction_y;
