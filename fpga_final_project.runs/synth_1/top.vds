@@ -2,8 +2,8 @@
 # Vivado v2017.3 (64-bit)
 # SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
 # IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
-# Start of session at: Sun Dec 10 01:36:04 2017
-# Process ID: 6584
+# Start of session at: Sun Dec 10 02:00:38 2017
+# Process ID: 4308
 # Current directory: Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/top.vds
@@ -15,22 +15,18 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 2892 
+INFO: Helper process launched with PID 4664 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 396.316 ; gain = 95.996
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 396.602 ; gain = 96.832
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'top' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:23]
+INFO: [Synth 8-638] synthesizing module 'top' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:26]
 INFO: [Synth 8-638] synthesizing module 'synchronize' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/synchronize.v:2]
 	Parameter NSYNC bound to: 2 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'synchronize' (1#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/synchronize.v:2]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-6584-DESKTOP-777TLCU/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (2#1) [Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-6584-DESKTOP-777TLCU/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-638] synthesizing module 'xvga' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:160]
-INFO: [Synth 8-256] done synthesizing module 'xvga' (3#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:160]
 INFO: [Synth 8-638] synthesizing module 'display_8hex' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/display_8hex.v:16]
 	Parameter bits bound to: 13 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'display_8hex' (4#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/display_8hex.v:16]
-WARNING: [Synth 8-689] width (4) of port connection 'data' does not match port width (32) of module 'display_8hex' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:80]
+INFO: [Synth 8-256] done synthesizing module 'display_8hex' (2#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/display_8hex.v:16]
+WARNING: [Synth 8-689] width (4) of port connection 'data' does not match port width (32) of module 'display_8hex' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:81]
 INFO: [Synth 8-638] synthesizing module 'game' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v:22]
 	Parameter planWidth bound to: 10'b1110010111 
 	Parameter planHeight bound to: 10'b1100000000 
@@ -40,12 +36,12 @@ INFO: [Synth 8-638] synthesizing module 'game' [Z:/vivado/fpga_final_project/fpg
 INFO: [Synth 8-638] synthesizing module 'circle' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/drawing.v:49]
 	Parameter RADIUS bound to: 16 - type: integer 
 	Parameter COLOR bound to: 12'b011101001101 
-INFO: [Synth 8-256] done synthesizing module 'circle' (5#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/drawing.v:49]
+INFO: [Synth 8-256] done synthesizing module 'circle' (3#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/drawing.v:49]
 WARNING: [Synth 8-689] width (11) of port connection 'y' does not match port width (10) of module 'circle' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v:53]
 WARNING: [Synth 8-5788] Register direction_x_reg in module game is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v:74]
 WARNING: [Synth 8-5788] Register direction_y_reg in module game is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v:76]
-INFO: [Synth 8-256] done synthesizing module 'game' (6#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v:22]
-WARNING: [Synth 8-689] width (11) of port connection 'vcount' does not match port width (10) of module 'game' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:81]
+INFO: [Synth 8-256] done synthesizing module 'game' (4#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v:22]
+WARNING: [Synth 8-689] width (11) of port connection 'vcount' does not match port width (10) of module 'game' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:84]
 INFO: [Synth 8-638] synthesizing module 'ADXL362Ctrl' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:117]
 	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
 	Parameter SCLK_FREQUENCY_HZ bound to: 1000000 - type: integer 
@@ -61,10 +57,9 @@ INFO: [Synth 8-638] synthesizing module 'SPI_If' [Z:/vivado/fpga_final_project/f
 	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
 	Parameter SCLK_FREQUENCY_HZ bound to: 1000000 - type: integer 
 INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "USER" *) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/SPI_If.vhd:113]
-INFO: [Synth 8-256] done synthesizing module 'SPI_If' (7#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/SPI_If.vhd:66]
-INFO: [Synth 8-256] done synthesizing module 'ADXL362Ctrl' (8#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:117]
-WARNING: [Synth 8-689] width (1) of port connection 'ACCEL_Z' does not match port width (12) of module 'ADXL362Ctrl' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:108]
-WARNING: [Synth 8-350] instance 'accel' of module 'ADXL362Ctrl' requires 11 connections, but only 8 given [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:108]
+INFO: [Synth 8-256] done synthesizing module 'SPI_If' (5#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/SPI_If.vhd:66]
+INFO: [Synth 8-256] done synthesizing module 'ADXL362Ctrl' (6#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:117]
+WARNING: [Synth 8-350] instance 'accel' of module 'ADXL362Ctrl' requires 11 connections, but only 8 given [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:90]
 INFO: [Synth 8-638] synthesizing module 'AccelArithmetics' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/AccelArithmetics.vhd:74]
 	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
 	Parameter ACC_X_Y_MAX bound to: 10'b0111111111 
@@ -76,16 +71,19 @@ WARNING: [Synth 8-6014] Unused sequential element ACCEL_Y_SQUARE_reg was removed
 WARNING: [Synth 8-6014] Unused sequential element ACCEL_Z_SQUARE_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/AccelArithmetics.vhd:217]
 WARNING: [Synth 8-6014] Unused sequential element ACCEL_MAG_SQUARE_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/AccelArithmetics.vhd:228]
 WARNING: [Synth 8-3848] Net ACCEL_MAG_OUT in module/entity AccelArithmetics does not have driver. [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/AccelArithmetics.vhd:70]
-INFO: [Synth 8-256] done synthesizing module 'AccelArithmetics' (9#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/AccelArithmetics.vhd:74]
-WARNING: [Synth 8-689] width (8) of port connection 'ACCEL_X_OUT' does not match port width (9) of module 'AccelArithmetics' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-350] instance 'aa' of module 'AccelArithmetics' requires 9 connections, but only 5 given [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
+INFO: [Synth 8-256] done synthesizing module 'AccelArithmetics' (7#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/AccelArithmetics.vhd:74]
+WARNING: [Synth 8-689] width (8) of port connection 'ACCEL_X_OUT' does not match port width (9) of module 'AccelArithmetics' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:93]
+WARNING: [Synth 8-350] instance 'aa' of module 'AccelArithmetics' requires 9 connections, but only 5 given [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-4308-DESKTOP-777TLCU/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (8#1) [Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-4308-DESKTOP-777TLCU/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-638] synthesizing module 'xvga' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/xvga.v:28]
+INFO: [Synth 8-256] done synthesizing module 'xvga' (9#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/xvga.v:28]
 INFO: [Synth 8-638] synthesizing module 'blend' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/blend.v:22]
 	Parameter m bound to: 2 - type: integer 
 	Parameter n bound to: 3 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'blend' (10#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/blend.v:22]
-INFO: [Synth 8-155] case statement is not full and has no default [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:140]
-WARNING: [Synth 8-3848] Net ACCEL_X in module/entity top does not have driver. [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:62]
-INFO: [Synth 8-256] done synthesizing module 'top' (11#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:165]
+INFO: [Synth 8-256] done synthesizing module 'top' (11#1) [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:26]
 WARNING: [Synth 8-3331] design AccelArithmetics has unconnected port ACCEL_MAG_OUT[11]
 WARNING: [Synth 8-3331] design AccelArithmetics has unconnected port ACCEL_MAG_OUT[10]
 WARNING: [Synth 8-3331] design AccelArithmetics has unconnected port ACCEL_MAG_OUT[9]
@@ -112,7 +110,7 @@ WARNING: [Synth 8-3331] design AccelArithmetics has unconnected port ACCEL_Z_IN[
 WARNING: [Synth 8-3331] design AccelArithmetics has unconnected port ACCEL_Z_IN[0]
 WARNING: [Synth 8-3331] design game has unconnected port vclock
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 450.078 ; gain = 149.758
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 450.199 ; gain = 150.430
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -121,40 +119,28 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[11] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[10] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[9] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[8] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[7] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[6] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[5] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[4] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[3] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[2] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[1] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_X_IN[0] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[11] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[10] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[9] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[8] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[7] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[6] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[5] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[4] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[3] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[2] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[1] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
-WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[0] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:110]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[11] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[10] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[9] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[8] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[7] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[6] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[5] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[4] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[3] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[2] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[1] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
+WARNING: [Synth 8-3295] tying undriven pin aa:ACCEL_Y_IN[0] to constant 0 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:92]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 450.078 ; gain = 149.758
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 450.199 ; gain = 150.430
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-6584-DESKTOP-777TLCU/dcp3/clk_wiz_0_in_context.xdc] for cell 'CLK65'
-Finished Parsing XDC File [Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-6584-DESKTOP-777TLCU/dcp3/clk_wiz_0_in_context.xdc] for cell 'CLK65'
+Parsing XDC File [Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-4308-DESKTOP-777TLCU/dcp3/clk_wiz_0_in_context.xdc] for cell 'CLK65'
+Finished Parsing XDC File [Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-4308-DESKTOP-777TLCU/dcp3/clk_wiz_0_in_context.xdc] for cell 'CLK65'
 Parsing XDC File [Z:/vivado/fpga_final_project/fpga_final_project.srcs/constrs_1/imports/vivado/Nexys4DDR_Master.xdc]
 Finished Parsing XDC File [Z:/vivado/fpga_final_project/fpga_final_project.srcs/constrs_1/imports/vivado/Nexys4DDR_Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [Z:/vivado/fpga_final_project/fpga_final_project.srcs/constrs_1/imports/vivado/Nexys4DDR_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
@@ -164,29 +150,29 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 807.824 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 806.926 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 807.824 ; gain = 507.504
+Finished Constraint Validation : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 806.926 ; gain = 507.156
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 807.824 ; gain = 507.504
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 806.926 ; gain = 507.156
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for CLK100MHZ. (constraint file  Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-6584-DESKTOP-777TLCU/dcp3/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK100MHZ. (constraint file  Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-6584-DESKTOP-777TLCU/dcp3/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for CLK100MHZ. (constraint file  Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-4308-DESKTOP-777TLCU/dcp3/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK100MHZ. (constraint file  Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/.Xil/Vivado-4308-DESKTOP-777TLCU/dcp3/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for CLK65. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 807.824 ; gain = 507.504
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 806.926 ; gain = 507.156
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element hcount_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:168]
-WARNING: [Synth 8-6014] Unused sequential element vcount_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:176]
 WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/display_8hex.v:46]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/drawing.v:65]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/drawing.v:64]
 INFO: [Synth 8-802] inferred FSM for state register 'StC_reg' in module 'SPI_If'
 INFO: [Synth 8-5546] ROM "SCLK_2X_TICK" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "StN" won't be mapped to RAM because it is too sparse
@@ -223,6 +209,8 @@ INFO: [Synth 8-5544] ROM "Cmd_Reg_Data[0]" won't be mapped to Block RAM because 
 INFO: [Synth 8-5544] ROM "Cmd_Reg[1]" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "Cmd_Reg[2]" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "Cnt_Bytes_Sent" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element hcount_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/xvga.v:36]
+WARNING: [Synth 8-6014] Unused sequential element vcount_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/xvga.v:44]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -269,7 +257,7 @@ stadxlwaitsampleratetick |                             0100 |                   
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'StC_Adxl_Ctrl_reg' using encoding 'sequential' in module 'ADXL362Ctrl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:35 . Memory (MB): peak = 807.824 ; gain = 507.504
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:39 . Memory (MB): peak = 806.926 ; gain = 507.156
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'genblk1.genblk1[0].sync_speed' (synchronize) to 'genblk1.genblk1[1].sync_speed'
 INFO: [Synth 8-223] decloning instance 'genblk1.genblk1[0].sync_speed' (synchronize) to 'genblk1.genblk1[2].sync_speed'
@@ -284,8 +272,9 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input     32 Bit       Adders := 4     
-	   2 Input     32 Bit       Adders := 1     
+	   3 Input     32 Bit       Adders := 2     
+	   3 Input     20 Bit       Adders := 2     
+	   2 Input     20 Bit       Adders := 1     
 	   2 Input     17 Bit       Adders := 1     
 	   2 Input     13 Bit       Adders := 4     
 	   2 Input     12 Bit       Adders := 1     
@@ -308,8 +297,6 @@ Detailed RTL Component Info :
 	                3 Bit    Registers := 4     
 	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 13    
-+---Multipliers : 
-	                32x32  Multipliers := 2     
 +---Muxes : 
 	   2 Input     17 Bit        Muxes := 1     
 	   2 Input     13 Bit        Muxes := 2     
@@ -354,13 +341,6 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   4 Input     12 Bit        Muxes := 1     
 	   4 Input      1 Bit        Muxes := 1     
-Module xvga 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     11 Bit       Adders := 2     
-+---Registers : 
-	               11 Bit    Registers := 2     
-	                1 Bit    Registers := 2     
 Module display_8hex 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -371,10 +351,8 @@ Detailed RTL Component Info :
 Module circle 
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input     32 Bit       Adders := 2     
-	   2 Input     32 Bit       Adders := 1     
-+---Multipliers : 
-	                32x32  Multipliers := 2     
+	   3 Input     20 Bit       Adders := 2     
+	   2 Input     20 Bit       Adders := 1     
 Module game 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -453,6 +431,13 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     13 Bit        Muxes := 2     
 	   4 Input     10 Bit        Muxes := 2     
+Module xvga 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 2     
++---Registers : 
+	               11 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
 Module blend 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -479,20 +464,11 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4471] merging register 'accel/Cmd_Reg_Data_Addr_reg[1:0]' into 'accel/Cmd_Reg_Data_Addr_reg[1:0]' [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:451]
-WARNING: [Synth 8-6014] Unused sequential element accel/Data_Reg_reg[1] was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:508]
-WARNING: [Synth 8-6014] Unused sequential element accel/Data_Reg_reg[2] was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:508]
-WARNING: [Synth 8-6014] Unused sequential element accel/Data_Reg_reg[3] was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:508]
-WARNING: [Synth 8-6014] Unused sequential element accel/Data_Reg_reg[4] was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:508]
-WARNING: [Synth 8-6014] Unused sequential element accel/Data_Reg_reg[5] was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:508]
-WARNING: [Synth 8-6014] Unused sequential element accel/Data_Reg_reg[6] was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:508]
-WARNING: [Synth 8-6014] Unused sequential element accel/Data_Reg_reg[7] was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:508]
-WARNING: [Synth 8-6014] Unused sequential element accel/ACCEL_X_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:805]
 WARNING: [Synth 8-6014] Unused sequential element accel/ACCEL_Y_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:806]
 WARNING: [Synth 8-6014] Unused sequential element accel/ACCEL_Z_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:807]
 WARNING: [Synth 8-6014] Unused sequential element accel/ACCEL_TMP_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:808]
 WARNING: [Synth 8-6014] Unused sequential element aa/ACCEL_X_CLIP_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/AccelArithmetics.vhd:170]
 WARNING: [Synth 8-6014] Unused sequential element aa/ACCEL_Y_CLIP_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/AccelArithmetics.vhd:171]
-WARNING: [Synth 8-6014] Unused sequential element accel/ACCEL_X_SUM_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:786]
 WARNING: [Synth 8-6014] Unused sequential element accel/ACCEL_Y_SUM_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:787]
 WARNING: [Synth 8-6014] Unused sequential element accel/ACCEL_Z_SUM_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:788]
 WARNING: [Synth 8-6014] Unused sequential element accel/ACCEL_TMP_SUM_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:789]
@@ -500,36 +476,17 @@ WARNING: [Synth 8-6014] Unused sequential element accel/Cmd_Reg_Data_Addr_reg wa
 INFO: [Synth 8-5546] ROM "accel/SPI_Interface/SCLK_2X_TICK" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "accel/Sample_Rate_Tick" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "accel/Cnt_SS_Inactive_done" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/drawing.v:64]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/drawing.v:64]
 WARNING: [Synth 8-6014] Unused sequential element gm/ball_x_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v:53]
 WARNING: [Synth 8-6014] Unused sequential element gm/ball_y_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v:53]
-WARNING: [Synth 8-6014] Unused sequential element xvga1/hcount_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:168]
-WARNING: [Synth 8-6014] Unused sequential element xvga1/vcount_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v:176]
 WARNING: [Synth 8-6014] Unused sequential element hex_display/counter_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/display_8hex.v:46]
 WARNING: [Synth 8-6014] Unused sequential element accel/SPI_Interface/SCLK_2X_DIV_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/SPI_If.vhd:159]
+WARNING: [Synth 8-6014] Unused sequential element accel/ACCEL_X_SUM_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd:786]
+WARNING: [Synth 8-6014] Unused sequential element xvga1/hcount_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/xvga.v:36]
+WARNING: [Synth 8-6014] Unused sequential element xvga1/vcount_reg was removed.  [Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/xvga.v:44]
 DSP Report: Generating DSP gm/ball/pixel3, operation Mode is: A*B.
 DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
 DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: Generating DSP gm/ball/pixel3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
 DSP Report: Generating DSP gm/ball/pixel3, operation Mode is: A*B.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: Generating DSP gm/ball/pixel3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: Generating DSP gm/ball/pixel3, operation Mode is: A*B.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: Generating DSP gm/ball/pixel3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: Generating DSP gm/ball/pixel3, operation Mode is: A*B.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
-DSP Report: Generating DSP gm/ball/pixel3, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
 DSP Report: operator gm/ball/pixel3 is absorbed into DSP gm/ball/pixel3.
 INFO: [Synth 8-3886] merging instance 'accel/Cmd_Reg_reg[0][0]' (FDRE) to 'accel/Cmd_Reg_reg[0][5]'
@@ -568,54 +525,102 @@ WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[0][3]) is unused 
 WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[0][2]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[0][1]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (accel/Data_Ready_reg) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[12]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[11]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[10]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[9]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[8]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[7]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[6]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[5]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[4]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[3]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[2]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[1]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_X_SUM_reg[0]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[12]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[11]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[10]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[9]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[8]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[7]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[6]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[5]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[4]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[3]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[2]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[1]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (aa/ACCEL_Y_SUM_reg[0]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (hex_display/seg_reg[6]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (hex_display/seg_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[1][7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[1][6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[1][5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[1][4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[1][3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[1][2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[1][1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[1][0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[2][7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[2][6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[2][5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[2][4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[2][3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[2][2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[2][1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[2][0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[3][7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[3][6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[3][5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[3][4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[3][3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[3][2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[3][1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[3][0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[4][7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[4][6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[4][5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[4][4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[4][3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[4][2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[4][1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[4][0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[5][7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[5][6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[5][5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[5][4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[5][3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[5][2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[5][1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[5][0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[6][7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[6][6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[6][5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[6][4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[6][3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[6][2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[6][1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[6][0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[7][7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[7][6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[7][5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[7][4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[7][3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[7][2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[7][1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/Data_Reg_reg[7][0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[8]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[9]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[10]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[11]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[12]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[13]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[14]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_SUM_reg[15]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_reg[11]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_reg[10]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_reg[9]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_reg[8]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_reg[7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_reg[6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_reg[5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_reg[4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (accel/ACCEL_X_reg[3]) is unused and will be removed from module top.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:40 . Memory (MB): peak = 807.824 ; gain = 507.504
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 806.926 ; gain = 507.156
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 DSP: Preliminary Mapping  Report (see note below)
-+------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|top         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|top         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|circle      | A*B         | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|circle      | A*B         | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
@@ -633,13 +638,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'CLK65/clk_out1' to pin 'CLK65/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:55 ; elapsed = 00:01:02 . Memory (MB): peak = 835.941 ; gain = 535.621
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:58 ; elapsed = 00:01:05 . Memory (MB): peak = 839.359 ; gain = 539.590
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:01:04 . Memory (MB): peak = 864.563 ; gain = 564.242
+Finished Timing Optimization : Time (s): cpu = 00:00:59 ; elapsed = 00:01:08 . Memory (MB): peak = 866.520 ; gain = 566.750
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -650,10 +655,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3332] Sequential element (gm/direction_x_reg[0]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (gm/direction_y_reg[0]) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:57 ; elapsed = 00:01:05 . Memory (MB): peak = 871.145 ; gain = 570.824
+Finished Technology Mapping : Time (s): cpu = 00:01:00 ; elapsed = 00:01:09 . Memory (MB): peak = 872.121 ; gain = 572.352
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -677,7 +680,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 871.145 ; gain = 570.824
+Finished IO Insertion : Time (s): cpu = 00:01:01 ; elapsed = 00:01:10 . Memory (MB): peak = 872.121 ; gain = 572.352
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -690,7 +693,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 871.145 ; gain = 570.824
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:01 ; elapsed = 00:01:10 . Memory (MB): peak = 872.121 ; gain = 572.352
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -702,25 +705,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 871.145 ; gain = 570.824
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 872.121 ; gain = 572.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 871.145 ; gain = 570.824
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 872.121 ; gain = 572.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 871.145 ; gain = 570.824
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 872.121 ; gain = 572.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 871.145 ; gain = 570.824
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 872.121 ; gain = 572.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -752,14 +755,14 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |clk_wiz_0 |     1|
-|2     |CARRY4    |    56|
-|3     |DSP48E1   |     6|
+|2     |CARRY4    |    45|
+|3     |DSP48E1   |     2|
 |4     |LUT1      |    21|
-|5     |LUT2      |   171|
-|6     |LUT3      |    40|
-|7     |LUT4      |    42|
-|8     |LUT5      |    53|
-|9     |LUT6      |    81|
+|5     |LUT2      |   126|
+|6     |LUT3      |    35|
+|7     |LUT4      |    41|
+|8     |LUT5      |    47|
+|9     |LUT6      |   101|
 |10    |MUXF7     |     1|
 |11    |SRL16E    |     1|
 |12    |FDCE      |    14|
@@ -774,22 +777,22 @@ Report Instance Areas:
 +------+------------------+-------------+------+
 |      |Instance          |Module       |Cells |
 +------+------------------+-------------+------+
-|1     |top               |             |   700|
+|1     |top               |             |   648|
 |2     |  accel           |ADXL362Ctrl  |   250|
 |3     |    SPI_Interface |SPI_If       |    69|
-|4     |  gm              |game         |   232|
-|5     |    ball          |circle       |    96|
+|4     |  gm              |game         |   178|
+|5     |    ball          |circle       |    42|
 |6     |  hex_display     |display_8hex |    35|
-|7     |  xvga1           |xvga         |   129|
+|7     |  xvga1           |xvga         |   131|
 +------+------------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 871.145 ; gain = 570.824
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 872.121 ; gain = 572.352
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 81 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:00:53 . Memory (MB): peak = 871.145 ; gain = 213.078
-Synthesis Optimization Complete : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 871.145 ; gain = 570.824
+Synthesis finished with 0 errors, 0 critical warnings and 157 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:00:57 . Memory (MB): peak = 872.121 ; gain = 215.625
+Synthesis Optimization Complete : Time (s): cpu = 00:01:02 ; elapsed = 00:01:11 . Memory (MB): peak = 872.121 ; gain = 572.352
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 68 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 53 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
@@ -798,10 +801,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-103 Infos, 147 Warnings, 0 Critical Warnings and 0 Errors encountered.
+104 Infos, 176 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:02 ; elapsed = 00:01:12 . Memory (MB): peak = 871.145 ; gain = 582.297
+synth_design: Time (s): cpu = 00:01:05 ; elapsed = 00:01:15 . Memory (MB): peak = 872.121 ; gain = 583.824
 INFO: [Common 17-1381] The checkpoint 'Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.169 . Memory (MB): peak = 871.145 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Dec 10 01:37:35 2017...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.080 . Memory (MB): peak = 872.121 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 10 02:02:11 2017...

@@ -36,6 +36,7 @@ read_verilog -library xil_defaultlib {
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/drawing.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/synchronize.v
+  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/xvga.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v
 }
 read_vhdl -library xil_defaultlib {
