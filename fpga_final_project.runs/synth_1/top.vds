@@ -801,3 +801,7 @@ INFO: [Common 17-83] Releasing license: Synthesis
 103 Infos, 147 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
 synth_design: Time (s): cpu = 00:01:02 ; elapsed = 00:01:12 . Memory (MB): peak = 871.145 ; gain = 582.297
+INFO: [Common 17-1381] The checkpoint 'Z:/vivado/fpga_final_project/fpga_final_project.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.169 . Memory (MB): peak = 871.145 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 10 01:37:35 2017...
