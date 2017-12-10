@@ -35,7 +35,7 @@ module game (
   // Reserve segment on the right for dashboard (205, one fifth for dashboard)
 
   // Local parameters
-  localparam planWidth = 10'd819, planHeight = 10'd768;
+  localparam planWidth = 10'd919, planHeight = 10'd768;
   localparam ballWidth = 64, ballHeight = 64;
   localparam ballRadius = 64 >> 2;
 
@@ -43,20 +43,21 @@ module game (
   assign pvsync = vsync;
 
   // Start ball at the center
-  reg signed [9:0] ball_x;
-  reg signed [9:0] ball_y;
+  reg signed [10:0] ball_x;
+  reg signed [10:0] ball_y;
 
   wire [11:0] pixel_bal;
   reg signed [3:0] speed_x, speed_y;
   reg signed [2:0] direction_x = 3'sd1, direction_y = 3'sd1;
   // blob #(.WIDTH(ballWidth),.HEIGHT(ballHeight),.COLOR(12'h74D)) ball(.x(ball_x),.y(ball_y),.hcount(hcount),.vcount(vcount),.pixel(pixel_bal));
   circle #(.RADIUS(ballRadius),.COLOR(12'h74D)) ball (.x(ball_x),.y(ball_y),.hcount(hcount),.vcount(vcount),.pixel(pixel_bal));
-  blend blend_inst (pixel_bal, { 12{1'b0} }, pixel);
+  // blend background (pixel_bal, { vcount[8:5] + hcount[9:6], hcount[8:5], hcount[3:0] }, pixel);
+  assign pixel = pixel_bal;
 
   // Update speed based on user input
-  always @(vclock) begin
-    speed_x <= $signed(pspeed);
-    speed_y <= $signed(pspeed);
+  always @(vclock or pspeed) begin
+    speed_x <= pspeed;
+    speed_y <= pspeed;
   end
 
 
@@ -69,13 +70,13 @@ module game (
       ball_y <= planHeight >> 1;
       end
     else begin // If not reset, continiously check for boundry
-      if ((ball_x + speed_x > planWidth - ballRadius) || (ball_x - speed_x < 0))
-        direction_x <= -direction_x;
-      if ((ball_y + speed_y > planHeight) || (ball_y - speed_y < 0))
-        direction_y <= -direction_y;
+      if ((ball_x + speed_x > planWidth - ballRadius) || (ball_x - speed_x < 1))
+        direction_x = -direction_x;
+      if ((ball_y + speed_y > planHeight) || (ball_y - speed_y < 1))
+        direction_y = -direction_y;
 
-      ball_x <= ball_x + speed_x  * direction_x;
-      ball_y <= ball_y + speed_y  * direction_y;
+      ball_x <= ball_x + speed_x * direction_x;
+      ball_y <= ball_y + speed_y * direction_y;
       end
 
   end

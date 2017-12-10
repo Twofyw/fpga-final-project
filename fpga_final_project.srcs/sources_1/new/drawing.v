@@ -50,11 +50,18 @@ module circle
   #(parameter RADIUS = 32,
               COLOR = 12'h74D)
   (input [10:0] x,hcount,
-   input [9:0] y,vcount,
-   output reg [11:0] pixel);
+    input [9:0] y,vcount,
+    output reg [11:0] pixel);
+
+    // Experiment with pipeline
+  reg [10:0] xp,hcountp;
+  reg [9:0]  yp,vcountp;
+  always @* begin
+    xp = x; hcountp = hcount; yp = y; vcountp = vcount;
+  end
 
   always @* begin
-    if ((hcount - x)**2 + (vcount-y)**2 < RADIUS**2)
+    if ((hcountp - xp)**2 + (vcountp-yp)**2 < RADIUS**2)
       pixel = COLOR;
     else pixel = 0;
   end

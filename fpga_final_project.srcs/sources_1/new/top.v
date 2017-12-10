@@ -25,6 +25,7 @@ module top(
       vga_out_red, vga_out_green, vga_out_blue, vga_out_hsync, vga_out_vsync,
       switch, reset, reset_game,
       MISO,SCLK,MOSI,SS,
+      SEG, AN
     );
 
 // ==============================================================================
@@ -37,6 +38,10 @@ module top(
   output       vga_out_hsync, vga_out_vsync;
   input MISO;
   output SCLK, MOSI, SS; // SPI signals
+
+  // Seven segment display
+  output [6:0] SEG;
+  output [7:0] AN;
 
   input reset, reset_game; // Reset components such as clocks, reset_game to put cursor at center of screen
 
@@ -54,10 +59,11 @@ module top(
   wire phsync,pvsync,pblank;
 
   // Accelerometer
-  wire signed [11:0] ACCEL_Z;
-  wire signed [7:0] ACCEL_Z_8;
-  wire signed [3:0] ACCEL_Z_4;
+  wire signed [11:0] ACCEL_X, ACCEL_Y;
+  wire signed [7:0] ACCEL_X_8, ACCEL_Y_8;
   wire Data_Ready;
+
+  wire [3:0] raw_speed, pspeed; // pspeed is raw_speed synchronized with CLK65MHZ
 
 // ==============================================================================
 // 							  		   Implementation
@@ -69,8 +75,11 @@ module top(
              .hsync(hsync),.vsync(vsync));
 
   // Connect to game logic to update what shows on game board
+
+  assign raw_speed = 4'b0111;
+  display_8hex hex_display (CLK100MHZ, pspeed, SEG, AN);
   game gm(.vclock(CLK65MHZ),.reset(reset_game),.hcount(hcount),.vcount(vcount),.hsync(hsync),
-          .vsync(vsync),.phsync(phsync),.pvsync(pvsync),.pixel(pixel_gameBoard),.pspeed(ACCEL_Z_4));
+          .vsync(vsync),.phsync(phsync),.pvsync(pvsync),.pixel(pixel_gameBoard),.pspeed(pspeed));
 
           // entity AccelArithmetics is
           // generic
@@ -98,13 +107,24 @@ module top(
           // end AccelArithmetics;
   ADXL362Ctrl accel (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_Z(ACCEL_Z),.Data_Ready(Data_Ready),
                       .MISO(MISO),.SCLK(SCLK),.MOSI(MOSI),.SS(SS));
-  AccelArithmetics aa (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_X_IN(ACCEL_Z),.ACCEL_X_OUT(ACCEL_Z_8),.Data_Ready(Data_Ready));
-  assign ACCEL_Z_4 = ACCEL_Z_8 >>> 4;
+  AccelArithmetics aa (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_X_IN(ACCEL_X),.ACCEL_X_OUT(ACCEL_X_8),.Data_Ready(Data_Ready));
+
+  // Because pspeed is provided by modules driven by 100MHZ clock which might cause synchronization problem with
+  // game input, it needs to be synchronized first.
+  // module synchronize #(parameter NSYNC = 2)  // number of sync flops.  must be >= 2
+  //                    (input clk,in,
+  //                     output reg out);
+  genvar i;
+  generate begin
+    for (i = 0; i < 4; i=i+1)
+      synchronize sync_speed (.clk(CLK65MHZ),.in(raw_speed[i]),.out(pspeed[i]));
+    end
+  endgenerate
 
   // Alpha-blend pixels from gameBoard and dashBoard, and send to VGA output
   // But before implementing dashBoard, output gameBoard alone is fine
   // assign pixel = pixel_gameBoard;
-  blend background (pixel_gameBoard, { vcount[8:5] + hcount[9:6], hcount[8:5], hcount[3:0] }, pixel);
+  blend #(2,3) background2 (pixel_gameBoard, { vcount[8:5] + hcount[9:6], hcount[8:5], hcount[3:0] }, pixel);
 
   // switch[1:0] selects which video generator to use:
   //  00: the game
@@ -119,7 +139,7 @@ module top(
     vs <= pvsync;
     case (switch[1:0])
       2'b01: rgb <= { 11{border} };
-      2'b10: rgb <= { vcount[8:5] + hcount[9:6], hcount[8:5], hcount[3:0] };
+      2'b10: rgb <= { vcount[4:1] + hcount[9:6], hcount[8:5], hcount[3:0] };
       2'b00: rgb <= pixel;
     endcase
   end
@@ -139,7 +159,7 @@ endmodule
 ////////////////////////////////////////////////////////////////////////////////
 module xvga(input vclock,
             output reg [10:0] hcount,    // pixel number on current line
-            output reg [9:0] vcount,	 // line number
+            output reg [10:0] vcount,	 // line number
             output reg vsync,hsync);
 
    // horizontal: 1344 pixels total

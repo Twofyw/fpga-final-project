@@ -17,8 +17,6 @@ proc create_report { reportName command } {
   }
 }
 set_param simulator.modelsimInstallPath C:/modeltech_pe_10.4c/win32pe
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -34,8 +32,10 @@ set_property ip_output_repo z:/vivado/fpga_final_project/fpga_final_project.cach
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/blend.v
+  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/display_8hex.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/drawing.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v
+  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/synchronize.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v
 }
 read_vhdl -library xil_defaultlib {
@@ -43,7 +43,7 @@ read_vhdl -library xil_defaultlib {
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/AccelArithmetics.vhd
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/SPI_If.vhd
 }
-read_ip -quiet z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+read_ip -quiet Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
