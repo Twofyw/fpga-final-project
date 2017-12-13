@@ -53,17 +53,15 @@ module circle
    input [9:0] y,vcount,
    output reg [11:0] pixel);
 
-   // Experimenting with pipeline
-   reg [19:0] s_hx, s_vy, s_r;
-
-  initial begin
-    s_r = RADIUS**2;
-  end
-
+  // Experimenting with pipeline
+  reg [19:0] dist1, dist2;
   always @* begin
-    s_hx <= (hcount - x)**2;
-    s_vy <= (vcount - y)**2;
-    if (s_hx + s_vy < s_r)
+    dist1 <= (hcount - x)**2 + (vcount-y)**2;
+    dist2 <= RADIUS**2;
+  end
+  
+  always @* begin
+    if (dist1 < dist2)
       pixel <= COLOR;
     else pixel <= 0;
   end

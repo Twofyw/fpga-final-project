@@ -208,27 +208,27 @@ begin
 end process Pipe_Data_Ready;
 
 -- Calculate squares of the incoming acceleration values
-Calculate_Square: process (SYSCLK, Data_Ready, ACCEL_X_IN, ACCEL_Y_IN, ACCEL_Z_IN)
-begin
-   if SYSCLK'EVENT and SYSCLK = '1' then
-      if Data_Ready = '1' then
-         ACCEL_X_SQUARE <= ACCEL_X_IN * ACCEL_X_IN;
-         ACCEL_Y_SQUARE <= ACCEL_Y_IN * ACCEL_Y_IN;
-         ACCEL_Z_SQUARE <= ACCEL_Z_IN * ACCEL_Z_IN;
-      end if;
-   end if;
-end process Calculate_Square;
+-- Calculate_Square: process (SYSCLK, Data_Ready, ACCEL_X_IN, ACCEL_Y_IN, ACCEL_Z_IN)
+-- begin
+--    if SYSCLK'EVENT and SYSCLK = '1' then
+--       if Data_Ready = '1' then
+--          ACCEL_X_SQUARE <= ACCEL_X_IN * ACCEL_X_IN;
+--          ACCEL_Y_SQUARE <= ACCEL_Y_IN * ACCEL_Y_IN;
+--          ACCEL_Z_SQUARE <= ACCEL_Z_IN * ACCEL_Z_IN;
+--       end if;
+--    end if;
+-- end process Calculate_Square;
 
 
 -- Calculate the sum of the squares to determine the magnitude of the acceleration
-Calculate_Square_Sum: process (SYSCLK, Data_Ready_0, ACCEL_X_SQUARE, ACCEL_Y_SQUARE, ACCEL_Z_SQUARE)
-begin
-   if SYSCLK'EVENT and SYSCLK = '1' then
-      if Data_Ready_0 = '1' then
-         ACCEL_MAG_SQUARE <= "000000" & (("00" & ACCEL_X_SQUARE) + ("00" & ACCEL_Y_SQUARE) + ("00" & ACCEL_Z_SQUARE));
-      end if;
-   end if;
-end process Calculate_Square_Sum;
+-- Calculate_Square_Sum: process (SYSCLK, Data_Ready_0, ACCEL_X_SQUARE, ACCEL_Y_SQUARE, ACCEL_Z_SQUARE)
+-- begin
+--    if SYSCLK'EVENT and SYSCLK = '1' then
+--       if Data_Ready_0 = '1' then
+--          ACCEL_MAG_SQUARE <= "000000" & (("00" & ACCEL_X_SQUARE) + ("00" & ACCEL_Y_SQUARE) + ("00" & ACCEL_Z_SQUARE));
+--       end if;
+--    end if;
+-- end process Calculate_Square_Sum;
 
 -- -- Calculate the square root to determine magnitude
 -- Magnitude_Calculation : Square_Root
