@@ -38,6 +38,7 @@ module game (
   localparam planWidth = 10'd919, planHeight = 10'd768;
   localparam ballWidth = 64, ballHeight = 64;
   localparam ballRadius = 64 >> 2;
+  localparam MAX_SPEED = 7;
 
   assign phsync = hsync;
   assign pvsync = vsync;
@@ -47,20 +48,15 @@ module game (
   reg signed [10:0] ball_y;
 
   wire [11:0] pixel_bal;
+
   reg signed [3:0] speed_x, speed_y;
+  reg signed [3:0] next_speed_x, next_speed_y;
+
   reg signed [2:0] direction_x = 3'sd1, direction_y = 3'sd1;
   // blob #(.WIDTH(ballWidth),.HEIGHT(ballHeight),.COLOR(12'h74D)) ball(.x(ball_x),.y(ball_y),.hcount(hcount),.vcount(vcount),.pixel(pixel_bal));
   circle #(.RADIUS(ballRadius),.COLOR(12'h74D)) ball (.x(ball_x),.y(ball_y),.hcount(hcount),.vcount(vcount),.pixel(pixel_bal));
   // blend background (pixel_bal, { vcount[8:5] + hcount[9:6], hcount[8:5], hcount[3:0] }, pixel);
   assign pixel = pixel_bal;
-
-  // Update speed based on user input
-  always @(vclock or pspeed) begin
-    speed_x <= pspeed;
-    speed_y <= pspeed;
-  end
-
-
 
   // Game logic
   always @(posedge vsync or posedge reset)
@@ -70,13 +66,20 @@ module game (
       ball_y <= planHeight >> 1;
       end
     else begin // If not reset, continiously check for boundry
-      if ((ball_x + speed_x > planWidth - ballRadius) || (ball_x - speed_x < 1))
+      // set speed
+      next_speed_x = speed_x + $signed(pspeed);
+      next_speed_y = speed_y + $signed(pspeed);
+
+      // if next_speed overflows, set speed to maximum speed
+
+      // check for boundry
+      if ((ball_x + speed_x * direction_x > planWidth - ballRadius) || (ball_x + speed_x * direction_x < 0))
         direction_x = -direction_x;
-      if ((ball_y + speed_y > planHeight) || (ball_y - speed_y < 1))
+      if ((ball_y + speed_y * direction_y > planHeight) || (ball_y + speed_y * direction_y < 0))
         direction_y = -direction_y;
 
-      ball_x <= ball_x + speed_x * direction_x;
-      ball_y <= ball_y + speed_y * direction_y;
+      ball_x = ball_x + speed_x * direction_x;
+      ball_y = ball_y + speed_y * direction_y;
       end
 
   end

@@ -32,22 +32,18 @@ set_property target_language Verilog [current_project]
 set_property ip_output_repo z:/vivado/fpga_final_project/fpga_final_project.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/shared/Binary_To_BCD.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/blend.v
-  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/shared/data_controller.v
+  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/shared/clock_div.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/display_8hex.v
-  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/shared/display_clk.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/drawing.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/game.v
-  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/shared/master_interface.v
-  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/shared/spi_interface.v
+  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/shared/pmod_step_driver.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/toolkit/synchronize.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/xvga.v
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/new/top.v
 }
 read_vhdl -library xil_defaultlib {
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/ADXL362Ctrl.vhd
-  Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/AccelArithmetics.vhd
   Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/imports/vivado/SPI_If.vhd
 }
 read_ip -quiet Z:/vivado/fpga_final_project/fpga_final_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci

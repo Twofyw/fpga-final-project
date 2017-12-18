@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1513094248">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1513267146">
   <File Type="PA-TCL" Name="top.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="top_reports.tcl"/>
@@ -11,15 +11,6 @@
   <File Type="VDS-TIMING-PB" Name="top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/imports/shared/Binary_To_BCD.v">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../shared/Binary_To_BCD.v"/>
-        <Attr Name="ImportTime" Val="1512769980"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/blend.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -27,10 +18,10 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/shared/data_controller.v">
+    <File Path="$PSRCDIR/sources_1/imports/shared/clock_div.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../shared/data_controller.v"/>
-        <Attr Name="ImportTime" Val="1512769980"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../shared/clock_div.v"/>
+        <Attr Name="ImportTime" Val="1453687136"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -40,15 +31,6 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../shared/toolkit/display_8hex.v"/>
         <Attr Name="ImportTime" Val="1512883392"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/shared/display_clk.v">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../shared/display_clk.v"/>
-        <Attr Name="ImportTime" Val="1512769980"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -68,19 +50,10 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/shared/master_interface.v">
+    <File Path="$PSRCDIR/sources_1/imports/shared/pmod_step_driver.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../shared/master_interface.v"/>
-        <Attr Name="ImportTime" Val="1512769980"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/shared/spi_interface.v">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../shared/spi_interface.v"/>
-        <Attr Name="ImportTime" Val="1512769980"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../shared/pmod_step_driver.v"/>
+        <Attr Name="ImportTime" Val="1453787892"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -110,14 +83,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/vivado/AccelArithmetics.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../AccelArithmetics.vhd"/>
-        <Attr Name="ImportTime" Val="1512744368"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/vivado/SPI_If.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../SPI_If.vhd"/>
@@ -130,6 +95,65 @@
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/shared/Binary_To_BCD.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../shared/Binary_To_BCD.v"/>
+        <Attr Name="ImportTime" Val="1512769980"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/shared/data_controller.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../shared/data_controller.v"/>
+        <Attr Name="ImportTime" Val="1512769980"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/shared/display_clk.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../shared/display_clk.v"/>
+        <Attr Name="ImportTime" Val="1512769980"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/shared/master_interface.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../shared/master_interface.v"/>
+        <Attr Name="ImportTime" Val="1512769980"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/shared/spi_interface.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../shared/spi_interface.v"/>
+        <Attr Name="ImportTime" Val="1512769980"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/vivado/AccelArithmetics.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../AccelArithmetics.vhd"/>
+        <Attr Name="ImportTime" Val="1512744368"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>

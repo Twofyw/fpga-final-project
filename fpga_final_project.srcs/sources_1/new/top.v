@@ -29,7 +29,8 @@ module top(
       switch, reset, reset_game,
       MISO,SCLK,MOSI,SS,
       SEG, AN,
-      JA
+      JA,
+      signal_x
     );
 
   input  [1:0] switch; // select what to display
@@ -47,6 +48,9 @@ module top(
 
   input reset, reset_game; // Reset components such as clocks, reset_game to put cursor at center of screen
 
+  // Stepper motors
+  output [3:0] signal_x;
+
 // ==============================================================================
 // 							  Parameters, Registers, and Wires
 // ==============================================================================
@@ -61,13 +65,14 @@ module top(
   wire phsync,pvsync,pblank;
 
   // Accelerometer
-  wire signed [11:0] ACCEL_X, ACCEL_Y;
-  wire signed [7:0] ACCEL_X_8, ACCEL_Y_8;
+  wire [3:0] angle;
+  wire [11:0] ACCEL_X;
+
   wire Data_Ready;
 
   wire [3:0] raw_speed, pspeed; // pspeed is raw_speed synchronized with CLK65MHZ
 
-  genvar i;
+  genvar i, j;
 
   // Gyroscope
   wire         begin_transmission;
@@ -80,6 +85,9 @@ module top(
   wire         slave_select;
   wire [3:0]   D4;
   wire         dclk; // Refresh SSD
+
+  // Stepper motors
+  wire         speedClock;
 
 // ==============================================================================
 // 							  		         Game up!
@@ -104,75 +112,94 @@ module top(
 // ==============================================================================
 // 							  		            Accelerometer
 // ==============================================================================
-  ADXL362Ctrl accel (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_X(ACCEL_X),.Data_Ready(Data_Ready),
+  ADXL362Ctrl accel (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_X(ACCEL_X), // .Data_Ready(Data_Ready),
                       .MISO(MISO),.SCLK(SCLK),.MOSI(MOSI),.SS(SS));
-  AccelArithmetics aa (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_X_IN(ACCEL_X),
-                      .ACCEL_X_OUT(ACCEL_X_8),.Data_Ready(Data_Ready));
+  for (j = 0; j < 4; j = j + i) begin
+    assign angle[i] = ACCEL_X[i+8];
+  end
 
+
+// ==============================================================================
+// 							  		            Stepper moters
+// ==============================================================================
+// module pmod_step_driver(
+//     input rst,
+//     input [1:0]dir,
+//     input clk,
+//     input en,
+//     output reg [3:0] signal
+//     );
+// module clock_div(
+//     input clk,
+//     input rst,
+//     output reg new_clk
+//     );
+  clock_div speedClock (.clk(CLK100MHZ),.rst(reset),.new_clk(speedClock));
+  pmod_step_driver x (.rst(reset),.dir(2'b01),.clk(speedClock),.en(reset_game),.signal(signal_x));
 
 
 // ==============================================================================
 // 							  		            Gyroscope
 // ==============================================================================
-  //--------------------------------------
-	//		Serial Port Interface Controller
-	//--------------------------------------
-  assign JA[3] = slave_select;
-	master_interface C0(
-				.begin_transmission(begin_transmission),
-				.end_transmission(end_transmission),
-				.send_data(send_data),
-				.recieved_data(recieved_data),
-				.clk(CLK100MHZ),
-				.rst(reset),
-				.slave_select(slave_select),
-				.start(1'b1),
-				.x_axis_data(x_axis_data),
-				.y_axis_data(y_axis_data),
-				.z_axis_data(z_axis_data)
-	);
-
-
-	//--------------------------------------
-	//		    Serial Port Interface
-	//--------------------------------------
-	spi_interface C1(
-				.begin_transmission(begin_transmission),
-				.slave_select(slave_select),
-				.send_data(send_data),
-				.recieved_data(recieved_data),
-				.miso(JA[1]),
-				.clk(CLK100MHZ),
-				.rst(reset),
-				.end_transmission(end_transmission),
-				.mosi(JA[0]),
-				.sclk(JA[2])
-	);
-  //---------------------------------------------------
-	// 		  Clock for display components
-	//---------------------------------------------------
-	display_clk display_counter(
-				.clk(CLK100MHZ),
-				.RST(rst),
-				.dclk(dclk)
-	);
-
-  //---------------------------------------------------
-	// 		Formats data received from PmodGYRO
-	//---------------------------------------------------
-	data_controller hex(
-				.clk(CLK100MHZ),
-				.dclk(dclk),
-				.rst(reset),
-				.display_sel(1'b1), // 1 for decimal; 0 for hexadecimal. Opt for decimal here for speed control
-				.sel(2'b11), // 11 for decimal output
-				.data(x_axis_data), // We're only interested in y axis data. Feeding it in directely
-				// .D1(D1),
-				// .D2(D2),
-				// .D3(D3),
-				.D4(D4) // We're only interested in highest bits
-	);
-  assign raw_speed = x_axis_data[15:12];
+  // //--------------------------------------
+	// //		Serial Port Interface Controller
+	// //--------------------------------------
+  // assign JA[3] = slave_select;
+	// master_interface C0(
+	// 			.begin_transmission(begin_transmission),
+	// 			.end_transmission(end_transmission),
+	// 			.send_data(send_data),
+	// 			.recieved_data(recieved_data),
+	// 			.clk(CLK100MHZ),
+	// 			.rst(reset),
+	// 			.slave_select(slave_select),
+	// 			.start(1'b1),
+	// 			.x_axis_data(x_axis_data),
+	// 			.y_axis_data(y_axis_data),
+	// 			.z_axis_data(z_axis_data)
+	// );
+  //
+  //
+	// //--------------------------------------
+	// //		    Serial Port Interface
+	// //--------------------------------------
+	// spi_interface C1(
+	// 			.begin_transmission(begin_transmission),
+	// 			.slave_select(slave_select),
+	// 			.send_data(send_data),
+	// 			.recieved_data(recieved_data),
+	// 			.miso(JA[1]),
+	// 			.clk(CLK100MHZ),
+	// 			.rst(reset),
+	// 			.end_transmission(end_transmission),
+	// 			.mosi(JA[0]),
+	// 			.sclk(JA[2])
+	// );
+  // //---------------------------------------------------
+	// // 		  Clock for display components
+	// //---------------------------------------------------
+	// display_clk display_counter(
+	// 			.clk(CLK100MHZ),
+	// 			.RST(rst),
+	// 			.dclk(dclk)
+	// );
+  //
+  // //---------------------------------------------------
+	// // 		Formats data received from PmodGYRO
+	// //---------------------------------------------------
+	// data_controller hex(
+	// 			.clk(CLK100MHZ),
+	// 			.dclk(dclk),
+	// 			.rst(reset),
+	// 			.display_sel(1'b1), // 1 for decimal; 0 for hexadecimal. Opt for decimal here for speed control
+	// 			.sel(2'b11), // 11 for decimal output
+	// 			.data(x_axis_data), // We're only interested in y axis data. Feeding it in directely
+	// 			// .D1(D1),
+	// 			// .D2(D2),
+	// 			// .D3(D3),
+	// 			.D4(D4) // We're only interested in highest bits
+	// );
+  // assign raw_speed = x_axis_data[15:12];
 
 
   // ==============================================================================
