@@ -30,11 +30,13 @@ module top(
       MISO,SCLK,MOSI,SS,
       SEG, AN,
       JA,
-      signal_x
+      signal_x,
+      gravity
     );
 
   input  [1:0] switch; // select what to display
   input        CLK100MHZ;
+  input  [2:0] gravity;
   output [3:0] vga_out_red, vga_out_green, vga_out_blue;
   output       vga_out_hsync, vga_out_vsync;
   input MISO;
@@ -65,12 +67,13 @@ module top(
   wire phsync,pvsync,pblank;
 
   // Accelerometer
-  wire [3:0] angle;
-  wire [11:0] ACCEL_X;
+  // wire [3:0] angle;
+  wire [4:0] S_ACCEL_X, S_ACCEL_Y; // Stablized acceleration
+  wire [11:0] ACCEL_X, ACCEL_Y;
 
   wire Data_Ready;
 
-  wire [3:0] raw_speed, pspeed; // pspeed is raw_speed synchronized with CLK65MHZ
+  // wire [3:0] raw_speed, pspeed; // pspeed is raw_speed synchronized with CLK65MHZ
 
   genvar i, j;
 
@@ -96,27 +99,27 @@ module top(
   // Because pspeed is provided by modules driven by 100MHZ clock which might cause synchronization problem with
   // game input, it needs to be synchronized first.
   generate begin
-    for (i = 0; i < 4; i=i+1) begin
-      synchronize sync_speed (.clk(CLK65MHZ),.in(raw_speed[i]),.out(pspeed[i]));
+    for (i = 0; i < 5; i=i+1) begin
+      synchronize sync_speed_x (.clk(CLK65MHZ),.in(ACCEL_X[i+7]),.out(S_ACCEL_X[i]));
+      synchronize sync_speed_y (.clk(CLK65MHZ),.in(ACCEL_Y[i+7]),.out(S_ACCEL_Y[i]));
     end
   end
   endgenerate
 
   // Display hexadecimal reading from raw gyroscope data
-  display_8hex hex_display (CLK100MHZ, y_axis_data, SEG, AN);
+  display_8hex hex_display (CLK100MHZ, S_ACCEL_X, SEG, AN);
 
   // Connect to game logic to update what shows on game board
   game gm(.vclock(CLK65MHZ),.reset(reset_game),.hcount(hcount),.vcount(vcount),.hsync(hsync),
-          .vsync(vsync),.phsync(phsync),.pvsync(pvsync),.pixel(pixel_gameBoard),.pspeed(pspeed));
+          .vsync(vsync),.phsync(phsync),.pvsync(pvsync),.pixel(pixel_gameBoard),.ACCEL_X(S_ACCEL_X),.ACCEL_Y(S_ACCEL_Y),.gravity(gravity));
+
+
 
 // ==============================================================================
 // 							  		            Accelerometer
 // ==============================================================================
-  ADXL362Ctrl accel (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_X(ACCEL_X), // .Data_Ready(Data_Ready),
+  ADXL362Ctrl accel (.SYSCLK(CLK100MHZ),.RESET(reset),.ACCEL_X(ACCEL_X),.ACCEL_Y(ACCEL_Y), // .Data_Ready(Data_Ready),
                       .MISO(MISO),.SCLK(SCLK),.MOSI(MOSI),.SS(SS));
-  for (j = 0; j < 4; j = j + i) begin
-    assign angle[i] = ACCEL_X[i+8];
-  end
 
 
 // ==============================================================================
@@ -134,8 +137,17 @@ module top(
 //     input rst,
 //     output reg new_clk
 //     );
-  clock_div speedClock (.clk(CLK100MHZ),.rst(reset),.new_clk(speedClock));
-  pmod_step_driver x (.rst(reset),.dir(2'b01),.clk(speedClock),.en(reset_game),.signal(signal_x));
+  wire  freq;
+  // Have a better version of motor control
+  // clock_div speedClock (.clk(CLK100MHZ), // divide system clock
+  //                       .rst(reset),
+  //                       .freq(freq),     // target frequency
+  //                       .new_clk(speedClock)); // clock output
+  // pmod_step_driver x (.rst(reset),
+  //                     .dir(2'b01),
+  //                     .clk(speedClock), // input clock
+  //                     .en(reset_game),  // hold down reset_game to start
+  //                     .signal(signal_x));
 
 
 // ==============================================================================
