@@ -18,8 +18,6 @@
 // Additional Comments:
 //
 //////////////////////////////////////////////////////////////////////////////////
-
-
 //////////////////////////////////////////////////////////////////////
 //
 // blob: generate rectangle on screen
@@ -36,8 +34,24 @@ module blob
    always @ * begin
       if ((hcount >= x && hcount < (x+WIDTH)) &&
 	       (vcount >= y && vcount < (y+HEIGHT)))
-	      pixel = COLOR;
-      else pixel = 0;
+	      pixel <= COLOR;
+      else pixel <= 0;
+   end
+endmodule
+
+module blob_c
+   #(parameter WIDTH = 64,            // default width: 64 pixels
+               HEIGHT = 64)           // default height: 64 pixels
+   (input [10:0] x,hcount,
+    input [9:0] y,vcount,
+    input [11:0] COLOR,  // default color: white
+    output reg [11:0] pixel);
+
+   always @ * begin
+      if ((hcount >= x && hcount < (x+WIDTH)) &&
+	       (vcount >= y && vcount < (y+HEIGHT)))
+	      pixel <= COLOR;
+      else pixel <= 0;
    end
 endmodule
 
@@ -47,22 +61,22 @@ endmodule
 //
 //////////////////////////////////////////////////////////////////////
 module circle
-  #(parameter RADIUS = 32,
-              COLOR = 12'h74D)
+  #(parameter RADIUS = 32)
   (input [10:0] x,hcount,
    input [9:0] y,vcount,
+   input [11:0] color,
    output reg [11:0] pixel);
 
   // Experimenting with pipeline
-  reg [19:0] dist1, dist2;
+  reg [19:0] dist11, dist12, dist2;
+
   always @* begin
-    dist1 <= (hcount - x)**2 + (vcount-y)**2;
-    dist2 <= RADIUS**2;
-  end
-  
-  always @* begin
-    if (dist1 < dist2)
-      pixel <= COLOR;
+    dist11 <= (hcount-x)**2;
+    dist12 <= (vcount-y)**2;
+    dist2  <= RADIUS**2;
+
+    if (dist11 + dist12 < dist2)
+      pixel <= color;
     else pixel <= 0;
   end
 endmodule

@@ -142,17 +142,31 @@ module pmod_step_driver(
     // Depending on the state
     // output signal has a different
     // value.
+    // always @ (posedge clk)
+    // begin
+    //     if (present_state == sig4)
+    //         signal = 4'b1000;
+    //     else if (present_state == sig3)
+    //         signal = 4'b0100;
+    //     else if (present_state == sig2)
+    //         signal = 4'b0010;
+    //     else if (present_state == sig1)
+    //         signal = 4'b0001;
+    //     else
+    //         signal = 4'b0000;
+    // end
+    // Option 2
     always @ (posedge clk)
     begin
         if (present_state == sig4)
-            signal = 4'b1000;
+            signal = 4'b0001;
         else if (present_state == sig3)
             signal = 4'b0100;
         else if (present_state == sig2)
-            signal = 4'b0010;
+            signal = 4'b1000;
         else if (present_state == sig1)
-            signal = 4'b0001;
+            signal = 4'b0010;
         else
-            signal = 4'b0000;
+            signal = 4'b0101;
     end
 endmodule

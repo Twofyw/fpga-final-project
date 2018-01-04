@@ -18,8 +18,6 @@
 // Additional Comments:
 //
 //////////////////////////////////////////////////////////////////////////////////
-
-
 ////////////////////////////////////////////////////////////////////////////////
 //
 // xvga: Generate XVGA display signals (1024 x 768 @ 60Hz)
@@ -32,8 +30,7 @@ module xvga(input vclock,
 
    // horizontal: 1344 pixels total
    // display 1024 pixels per line
-   wire hsyncon,hsyncoff,hreset,hblankon;
-   assign hblankon = (hcount == 1023);
+   wire hsyncon,hsyncoff,hreset;
    assign hsyncon = (hcount == 1047);
    assign hsyncoff = (hcount == 1183);
    assign hreset = (hcount == 1343);

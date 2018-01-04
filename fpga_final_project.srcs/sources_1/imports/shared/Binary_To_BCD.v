@@ -2,7 +2,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Company: Digilent Inc.
 // Engineer: Josh Sackos
-// 
+//
 // Create Date:    07/11/2012
 // Module Name:    Binary_To_BCD
 // Project Name: 	 PmodGYRO_Demo
@@ -19,11 +19,9 @@
 //								BCDOUT[7:4]		- Tens place
 //								BCDOUT[3:0]		- Ones place
 //
-// Revision History: 
+// Revision History:
 // 						Revision 0.01 - File Created (Josh Sackos)
 //////////////////////////////////////////////////////////////////////////////////
-
-
 // ==============================================================================
 // 										  Define Module
 // ==============================================================================
@@ -50,12 +48,12 @@ module Binary_To_BCD(
 	// 							  Parameters, Regsiters, and Wires
 	// ===========================================================================
 			reg [15:0] BCDOUT = 16'h0000;		// Output BCD values, contains 4 digits
-			
+
 			reg [4:0] shiftCount = 5'd0;	   // Stores number of shifts executed
 			reg [31:0] tmpSR;						// Temporary shift regsiter
 
 			reg [2:0] STATE = Idle;				// Present state
-			
+
 			// FSM States
 			parameter [2:0] Idle = 3'b000,
 								 Init = 3'b001,
@@ -82,12 +80,12 @@ module Binary_To_BCD(
 					else begin
 
 							case (STATE)
-							
+
 									// Idle State
 									Idle : begin
 											BCDOUT <= BCDOUT;								 	// Output does not change
 											tmpSR <= 32'h00000000;							// Temp shift reg empty
-											
+
 											if(START == 1'b1) begin
 													STATE <= Init;
 											end
@@ -110,7 +108,7 @@ module Binary_To_BCD(
 											tmpSR <= {tmpSR[30:0], 1'b0};			// Shift left 1 bit
 
 											shiftCount <= shiftCount + 1'b1;		// Count the shift
-											
+
 											STATE <= Check;							// Check digits
 
 									end
@@ -131,12 +129,12 @@ module Binary_To_BCD(
 													if(tmpSR[27:24] >= 3'd5) begin
 															tmpSR[27:24] <= tmpSR[27:24] + 2'd3;
 													end
-													
+
 													// Add 3 to tens place
 													if(tmpSR[23:20] >= 3'd5) begin
 															tmpSR[23:20] <= tmpSR[23:20] + 2'd3;
 													end
-													
+
 													// Add 3 to ones place
 													if(tmpSR[19:16] >= 3'd5) begin
 															tmpSR[19:16] <= tmpSR[19:16] + 2'd3;
@@ -149,12 +147,12 @@ module Binary_To_BCD(
 											else begin
 													STATE <= Done;
 											end
-											
+
 									end
-									
+
 									// Done State
 									Done : begin
-									
+
 											BCDOUT <= tmpSR[31:16];	// Assign output the new BCD values
 											tmpSR <= 32'h00000000;	// Clear temp shift register
 											shiftCount <= 5'b00000; // Clear shift count
